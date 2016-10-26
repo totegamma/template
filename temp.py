@@ -16,8 +16,8 @@ extension = args[1].split(".")[-1]
 target = open(args[1], 'w')
 
 
-if(os.path.isfile(os.environ['HOME'] + "/" + extension + ".temp")):
-    templatePath = os.environ['HOME'] + "/" + extension + ".temp"
+if(os.path.isfile(os.environ['HOME'] + "/.templates/" + extension + ".temp")):
+    templatePath = os.environ['HOME'] + "/.templates/" + extension + ".temp"
 elif(os.path.isfile("templates/" + extension + ".temp")):
     templatePath = "templates/" + extension + ".temp"
 
@@ -25,5 +25,5 @@ if 'templatePath' in locals():
     template = open(templatePath, 'r')
     for line in template:
         replacedLine = line.replace("<#filename#>", filename)
-        replacedLine = line.replace("<#FILENAME#>", filename.upper())
+        replacedLine = replacedLine.replace("<#FILENAME#>", filename.upper())
         target.write(replacedLine)
