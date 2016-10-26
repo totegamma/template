@@ -8,13 +8,12 @@ import re
 
 args = sys.argv #コマンドライン引数
 if(len(sys.argv) == 1):
-    print("ファイル名を書けつってんの")
+    print("ファイル名入力してくれないと作りようがないんだが....")
     sys.exit()
 filename = extension = args[1].split(".")[0]
 extension = args[1].split(".")[-1]
 
 target = open(args[1], 'w')
-
 
 if(os.path.isfile(os.environ['HOME'] + "/.templates/" + extension + ".temp")):
     templatePath = os.environ['HOME'] + "/.templates/" + extension + ".temp"
